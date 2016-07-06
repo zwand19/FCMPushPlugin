@@ -15,7 +15,7 @@
 
   CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:YES];
 
-  [self success:result callbackId:callbackId];
+  [self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
 
 @end
