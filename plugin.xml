@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="com.fcm.pushplugin" version="0.1.0">
+
+  <name>FCM Push Plugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/fcmPushPlugin.js" target="js/fcmPushPlugin.js"/>
+
+  <js-module src="www/fcmPushPlugin.js" name="fcmPushPlugin">
+    <clobbers target="fcmPushPlugin" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="FCMPushPlugin">
+        <param name="android-package" value="com.plugin.FCMPushPlugin"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/FCMPushPlugin.java" target-dir="src/com/plugin/FCMPushPlugin"/>
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="FCMPushPlugin">
+        <param name="ios-package" value="FCMPushPlugin" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/FCMPushPlugin.h" target-dir="FCMPushPlugin"/>
+    <source-file src="src/ios/FCMPushPlugin.m" target-dir="FCMPushPlugin"/>
+  </platform>
+
+</plugin>
